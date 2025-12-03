@@ -1,6 +1,5 @@
 package me.gg.pinit.authenticate.authentication;
 
-import jakarta.annotation.Nullable;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -8,7 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class JwtAuthenticationToken extends AbstractAuthenticationToken {
-    private final @Nullable Object principal;
+    private final Object principal;
     private final String token;
 
     public JwtAuthenticationToken(String token) {
@@ -26,12 +25,12 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
     }
 
     @Override
-    public @Nullable Object getCredentials() {
+    public Object getCredentials() {
         return token;
     }
 
     @Override
-    public @Nullable Object getPrincipal() {
+    public Object getPrincipal() {
         return principal;
     }
 
