@@ -14,14 +14,14 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
         super(Collections.emptyList());
         this.memberId = null;
         this.token = token;
-        setAuthenticated(false);
+        super.setAuthenticated(false);
     }
 
     public JwtAuthenticationToken(Long principal, String token, Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
         this.memberId = principal;
         this.token = token;
-        setAuthenticated(true);
+        super.setAuthenticated(true);
     }
 
     @Override
