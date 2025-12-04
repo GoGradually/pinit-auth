@@ -1,6 +1,5 @@
-package me.gg.pinit.adaptor;
+package me.gg.pinit.domain;
 
-import me.gg.pinit.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
