@@ -48,7 +48,7 @@ public class Oauth2Service {
         oauth2StateService.verifyAndConsumeState(state, currentSessionId);
 
         List<Oauth2Token> tokens = oauth2Provider.grantToken(new OpenIdPublishCommand(code, state));
-        Oauth2Token accessToken = tokens.stream().filter(token -> token.getRole().equals("ACCESS_TOKEN")).findFirst()
+        Oauth2Token accessToken = tokens.stream().filter(token -> token.getRole().equals(Oauth2Token.Role.ACCESS_TOKEN)).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("No access token found"));
 
         Profile profile = oauth2Provider.getProfile(accessToken);
