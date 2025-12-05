@@ -14,5 +14,5 @@ public abstract class OpenIdCommand {
         this.client_secret = client_secret;
     }
 
-    public abstract void execute();
+    public abstract void execute(Oauth2Provider provider);
 }
