@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,8 +38,18 @@ public class NaverOauth2Provider implements Oauth2Provider {
     }
 
     @Override
-    public String getAuthorizationUrl() {
-        return NAVER_ID_URL + OAUTH_2_0_AUTHORIZE;
+    public URI getAuthorizationUrl() {
+        return URI.create(NAVER_ID_URL + OAUTH_2_0_AUTHORIZE);
+    }
+
+    @Override
+    public String getRedirectUri() {
+        return naverRegistrationProperties.getRedirectUri();
+    }
+
+    @Override
+    public String getClientId() {
+        return naverRegistrationProperties.getClientId();
     }
 
     @Override
