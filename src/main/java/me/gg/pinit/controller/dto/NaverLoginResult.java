@@ -6,8 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class NaverLoginResult {
-    private String state;
     private String code;
-    private String client_id;
-    private String redirect_uri;
+    private String state;
+    private String error;
+    private String error_description;
 }
