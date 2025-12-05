@@ -4,6 +4,7 @@ import me.gg.pinit.domain.oidc.Oauth2Provider;
 import me.gg.pinit.domain.oidc.Oauth2Token;
 import me.gg.pinit.domain.oidc.OpenIdCommand;
 import me.gg.pinit.domain.oidc.Profile;
+import me.gg.pinit.infra.Provider;
 import me.gg.pinit.infra.dto.OpenIdProfileResponse;
 import me.gg.pinit.infra.dto.OpenIdTokenRequest;
 import me.gg.pinit.infra.dto.OpenIdTokenResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestClient;
 import java.util.List;
 import java.util.Objects;
 
+@Provider
 public class NaverOauth2Provider implements Oauth2Provider {
     public static final String NAVER_ID_URL = "https://nid.naver.com";
     public static final String NAVER_APP_URL = "https://openapi.naver.com";
