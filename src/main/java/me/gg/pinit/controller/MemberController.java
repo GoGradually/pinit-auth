@@ -1,5 +1,12 @@
 package me.gg.pinit.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import me.gg.pinit.controller.dto.LoginRequest;
@@ -20,6 +27,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 @RestController
+@Tag(name = "회원/인증", description = "아이디/비밀번호 로그인 및 토큰 관리")
 public class MemberController {
     private final MemberService memberService;
     private final JwtTokenProvider jwtTokenProvider;
@@ -30,6 +38,14 @@ public class MemberController {
     }
 
     @PostMapping("/login")
+    @Operation(
+            summary = "아이디/비밀번호 로그인",
+            description = "username, password를 받아 access token을 반환하고 refresh token은 httpOnly 쿠키로 설정합니다."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "로그인 성공"),
+            @ApiResponse(responseCode = "500", description = "자격 증명 오류 등 서버 오류")
+    })
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         Member member = memberService.login(loginRequest.getUsername(), loginRequest.getPassword());
 
@@ -42,12 +58,31 @@ public class MemberController {
     }
 
     @PostMapping("/signup")
+    @Operation(
+            summary = "회원가입",
+            description = "로컬 계정 회원가입을 수행합니다."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "가입 완료"),
+            @ApiResponse(responseCode = "500", description = "서버 오류")
+    })
     public ResponseEntity<Void> signup(@RequestBody SignupRequest signupRequest) {
         memberService.signup(signupRequest.getUsername(), signupRequest.getPassword());
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/refresh")
+    @Operation(
+            summary = "액세스 토큰 재발급",
+            description = "refresh_token 쿠키를 검증해 새로운 access/refresh token을 발급합니다.",
+            parameters = {
+                    @Parameter(name = "refresh_token", in = ParameterIn.COOKIE, description = "리프레시 토큰", required = true)
+            }
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "재발급 성공"),
+            @ApiResponse(responseCode = "401", description = "쿠키 없음 또는 토큰 검증 실패")
+    })
     public ResponseEntity<LoginResponse> refresh(HttpServletRequest request) {
         if (request.getCookies() == null) {
             return ResponseEntity.status(401).build();
@@ -75,6 +110,13 @@ public class MemberController {
     }
 
     @GetMapping("/me")
+    @Operation(
+            summary = "로그인 확인",
+            description = "Bearer 토큰이 유효한지 확인합니다.",
+            security = {
+                    @SecurityRequirement(name = "bearerAuth")
+            }
+    )
     public ResponseEntity<Void> checkLogin() {
         return ResponseEntity.ok().build();
     }

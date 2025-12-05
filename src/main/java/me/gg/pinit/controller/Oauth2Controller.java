@@ -1,5 +1,11 @@
 package me.gg.pinit.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import me.gg.pinit.controller.dto.LoginResponse;
@@ -22,6 +28,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.Collections;
 
 @RestController
+@Tag(name = "소셜 로그인", description = "외부 OAuth2 공급자(네이버) 로그인 흐름")
 public class Oauth2Controller {
     private final JwtTokenProvider jwtTokenProvider;
     private final Oauth2Service oauth2Service;
@@ -34,6 +41,17 @@ public class Oauth2Controller {
     }
 
     @GetMapping("/login/oauth2/authorize/{provider}")
+    @Operation(
+            summary = "소셜 로그인 인가 요청",
+            description = "provider에 맞는 인가 URL로 302 리다이렉트합니다.",
+            parameters = {
+                    @Parameter(name = "provider", in = ParameterIn.PATH, description = "소셜 로그인 공급자", example = "naver", required = true)
+            }
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "302", description = "외부 인가 페이지로 리다이렉트"),
+            @ApiResponse(responseCode = "500", description = "미지원 provider 등 서버 오류")
+    })
     public ResponseEntity<Void> authorize(@PathVariable String provider, HttpServletRequest request) {
         HttpSession session = request.getSession();
         String sessionId = session.getId();
@@ -56,6 +74,22 @@ public class Oauth2Controller {
 
 
     @GetMapping("/login/oauth2/code/{provider}")
+    @Operation(
+            summary = "소셜 로그인 콜백",
+            description = "provider 콜백에서 code/state를 받아 로그인 처리 후 토큰을 반환합니다.",
+            parameters = {
+                    @Parameter(name = "provider", in = ParameterIn.PATH, description = "소셜 로그인 공급자", example = "naver", required = true),
+                    @Parameter(name = "code", in = ParameterIn.QUERY, description = "OAuth2 인가 코드"),
+                    @Parameter(name = "state", in = ParameterIn.QUERY, description = "CSRF 방지용 state"),
+                    @Parameter(name = "error", in = ParameterIn.QUERY, description = "provider 오류 코드"),
+                    @Parameter(name = "error_description", in = ParameterIn.QUERY, description = "provider 오류 상세")
+            }
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "소셜 로그인 성공"),
+            @ApiResponse(responseCode = "400", description = "provider 오류 응답"),
+            @ApiResponse(responseCode = "500", description = "state 검증 실패, 토큰 교환 실패 등 서버 오류")
+    })
     public ResponseEntity<LoginResponse> socialLogin(@PathVariable String provider, @ModelAttribute SocialLoginResult socialLoginResult, HttpServletRequest request) {
         if (socialLoginResult.getError() != null) {
             return ResponseEntity.badRequest().build();
