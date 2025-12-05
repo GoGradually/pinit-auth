@@ -1,11 +1,17 @@
 package me.gg.pinit.infra.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import me.gg.pinit.domain.oidc.Oauth2Token;
 import me.gg.pinit.infra.exception.OIDCException;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
+@Getter
+@Setter
 public class OpenIdTokenResponse {
     private String refresh_token;
     private String access_token;
