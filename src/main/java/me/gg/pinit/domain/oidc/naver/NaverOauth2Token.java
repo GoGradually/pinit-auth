@@ -1,8 +1,9 @@
 package me.gg.pinit.domain.oidc.naver;
 
 import lombok.Getter;
+import me.gg.pinit.domain.oidc.Oauth2Token;
 
-public class NaverOauth2Token {
+public class NaverOauth2Token extends Oauth2Token {
     @Getter
     private String accessToken;
     @Getter
