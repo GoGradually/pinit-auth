@@ -6,11 +6,11 @@ import java.util.List;
 
 @Getter
 public class OpenIdRefreshCommand extends OpenIdCommand {
-    private final String refresh_token;
+    private final String refreshToken;
 
-    public OpenIdRefreshCommand(String client_id, String client_secret, String refresh_token) {
-        super("refresh_token", client_id, client_secret);
-        this.refresh_token = refresh_token;
+    public OpenIdRefreshCommand(String refreshToken) {
+        super("refresh_token");
+        this.refreshToken = refreshToken;
     }
 
     @Override

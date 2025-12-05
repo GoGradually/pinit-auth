@@ -9,8 +9,8 @@ public class OpenIdPublishCommand extends OpenIdCommand {
     private final String code;
     private final String state;
 
-    public OpenIdPublishCommand(String client_id, String client_secret, String code, String state) {
-        super("authorization_code", client_id, client_secret);
+    public OpenIdPublishCommand(String code, String state) {
+        super("authorization_code");
         this.code = code;
         this.state = state;
     }
