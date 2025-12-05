@@ -2,15 +2,12 @@ package me.gg.pinit.infra.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import me.gg.pinit.domain.oidc.Profile;
 
 @Getter
 @Setter
 public class OpenIdProfileResponse {
-    private String sub;
-    private String nickname;
-
-    public OpenIdProfileResponse(String sub, String nickname) {
-        this.sub = sub;
-        this.nickname = nickname;
-    }
+    private String resultcode;
+    private String message;
+    private Profile response;
 }

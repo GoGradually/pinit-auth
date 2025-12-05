@@ -1,5 +1,6 @@
 package me.gg.pinit.infra.naver;
 
+import lombok.extern.slf4j.Slf4j;
 import me.gg.pinit.domain.oidc.Oauth2Provider;
 import me.gg.pinit.domain.oidc.Oauth2Token;
 import me.gg.pinit.domain.oidc.OpenIdCommand;
@@ -18,6 +19,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 
+@Slf4j
 @Provider("naver")
 public class NaverOauth2Provider implements Oauth2Provider {
     public static final String NAVER_ID_URL = "https://nid.naver.com";
@@ -72,6 +74,19 @@ public class NaverOauth2Provider implements Oauth2Provider {
                 .compute();
     }
 
+    @Override
+    public Profile getProfile(Oauth2Token accessToken) {
+        if (!accessToken.getRole().equals(Oauth2Token.Role.ACCESS_TOKEN))
+            throw new IllegalArgumentException("AccessToken이 아닙니다.");
+        OpenIdProfileResponse result = profileClient.get()
+                .uri(OPENID_PROFILE)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken.getToken())
+                .retrieve()
+                .body(OpenIdProfileResponse.class);
+        Objects.requireNonNull(result);
+        return result.getResponse();
+    }
+
     private MultiValueMap<String, String> getMultiValueParams(OpenIdTokenRequest request) {
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
         formData.add("grant_type", request.getGrant_type());
@@ -83,18 +98,5 @@ public class NaverOauth2Provider implements Oauth2Provider {
         if (request.getAccess_token() != null) formData.add("access_token", request.getAccess_token());
         if (request.getService_provider() != null) formData.add("service_provider", request.getService_provider());
         return formData;
-    }
-
-    @Override
-    public Profile getProfile(Oauth2Token accessToken) {
-        if (!accessToken.getRole().equals(Oauth2Token.Role.ACCESS_TOKEN))
-            throw new IllegalArgumentException("AccessToken이 아닙니다.");
-        OpenIdProfileResponse result = profileClient.get()
-                .uri(OPENID_PROFILE)
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken.getToken())
-                .retrieve()
-                .body(OpenIdProfileResponse.class);
-        Objects.requireNonNull(result);
-        return new Profile(result.getSub(), result.getNickname());
     }
 }

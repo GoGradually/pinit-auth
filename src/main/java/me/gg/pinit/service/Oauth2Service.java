@@ -1,5 +1,6 @@
 package me.gg.pinit.service;
 
+import lombok.extern.slf4j.Slf4j;
 import me.gg.pinit.domain.member.Member;
 import me.gg.pinit.domain.member.OauthAccount;
 import me.gg.pinit.domain.member.OauthAccountId;
@@ -15,6 +16,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class Oauth2Service {
     private final Oauth2ProviderMapper oauth2ProviderMapper;
@@ -28,8 +30,6 @@ public class Oauth2Service {
         this.memberService = memberService;
         this.oauth2StateService = oauth2StateService;
     }
-
-    // Todo 리다이렉트 준비 로직 추가
 
     public String generateState(String sessionId) {
         return oauth2StateService.createAndStoreState(sessionId);
@@ -53,7 +53,7 @@ public class Oauth2Service {
 
         Profile profile = oauth2Provider.getProfile(accessToken);
 
-        OauthAccountId oauthAccountId = new OauthAccountId("", profile.getId());
+        OauthAccountId oauthAccountId = new OauthAccountId(oauth2Provider.getAuthorizationUrl().toString(), profile.getId());
 
         OauthAccount oauthAccount = oauthAccountRepository.findById(oauthAccountId)
                 .orElseGet(() -> signup(oauthAccountId));
