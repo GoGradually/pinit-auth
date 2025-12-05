@@ -21,10 +21,10 @@ public class OpenIdTokenResponse {
         }
         List<Oauth2Token> tokens = new ArrayList<>();
         if (refresh_token != null && !refresh_token.isEmpty()) {
-            tokens.add(new Oauth2Token(refresh_token, Oauth2Token.Type.REFRESH_TOKEN, expires_in));
+            tokens.add(new Oauth2Token(refresh_token, Oauth2Token.Role.REFRESH_TOKEN, expires_in, token_type));
         }
         if (access_token != null && !access_token.isEmpty()) {
-            tokens.add(new Oauth2Token(access_token, Oauth2Token.Type.ACCESS_TOKEN, expires_in));
+            tokens.add(new Oauth2Token(access_token, Oauth2Token.Role.ACCESS_TOKEN, expires_in, token_type));
         }
         return tokens;
     }
