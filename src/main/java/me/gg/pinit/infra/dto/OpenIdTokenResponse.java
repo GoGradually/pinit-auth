@@ -1,5 +1,11 @@
 package me.gg.pinit.infra.dto;
 
+import me.gg.pinit.domain.oidc.Oauth2Token;
+import me.gg.pinit.infra.exception.OIDCException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class OpenIdTokenResponse {
     private String refresh_token;
     private String access_token;
@@ -8,4 +14,18 @@ public class OpenIdTokenResponse {
     private int expires_in;
     private String error;
     private String error_description;
+
+    public List<Oauth2Token> compute() {
+        if (error != null && !error.isEmpty()) {
+            throw new OIDCException(error + ": " + error_description);
+        }
+        List<Oauth2Token> tokens = new ArrayList<>();
+        if (refresh_token != null && !refresh_token.isEmpty()) {
+            tokens.add(new Oauth2Token(refresh_token, Oauth2Token.Type.REFRESH_TOKEN, expires_in));
+        }
+        if (access_token != null && !access_token.isEmpty()) {
+            tokens.add(new Oauth2Token(access_token, Oauth2Token.Type.ACCESS_TOKEN, expires_in));
+        }
+        return tokens;
+    }
 }
