@@ -19,17 +19,23 @@ public class Oauth2Service {
     private final Oauth2ProviderMapper oauth2ProviderMapper;
     private final OauthAccountRepository oauthAccountRepository;
     private final MemberService memberService;
+    private final Oauth2StateService oauth2StateService;
 
-    public Oauth2Service(Oauth2ProviderMapper oauth2ProviderMapper, OauthAccountRepository oauthAccountRepository, MemberService memberService) {
+    public Oauth2Service(Oauth2ProviderMapper oauth2ProviderMapper, OauthAccountRepository oauthAccountRepository, MemberService memberService, Oauth2StateService oauth2StateService) {
         this.oauth2ProviderMapper = oauth2ProviderMapper;
         this.oauthAccountRepository = oauthAccountRepository;
         this.memberService = memberService;
+        this.oauth2StateService = oauth2StateService;
     }
+
+    // Todo 리다이렉트 준비 로직 추가
 
 
     @Transactional
-    public Member login(String provider, String code, String state) {
+    public Member login(String provider, String currentSessionId, String code, String state) {
         Oauth2Provider oauth2Provider = oauth2ProviderMapper.get(provider);
+
+        oauth2StateService.verifyAndConsumeState(state, currentSessionId);
 
         List<Oauth2Token> tokens = oauth2Provider.grantToken(new OpenIdPublishCommand(code, state));
         Oauth2Token accessToken = tokens.stream().filter(token -> token.getRole().equals("ACCESS_TOKEN")).findFirst()
