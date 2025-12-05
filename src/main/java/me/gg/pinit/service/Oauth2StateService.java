@@ -24,9 +24,7 @@ public class Oauth2StateService {
         String state = generateState();
         String key = buildKey(state);
 
-        String value = sessionId;
-
-        redisTemplate.opsForValue().set(key, value, STATE_TTL);
+        redisTemplate.opsForValue().set(key, sessionId, STATE_TTL);
         return state;
     }
 
