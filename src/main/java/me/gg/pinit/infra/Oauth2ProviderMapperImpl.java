@@ -1,6 +1,7 @@
 package me.gg.pinit.infra;
 
 import me.gg.pinit.domain.oidc.Oauth2Provider;
+import me.gg.pinit.service.Oauth2ProviderMapper;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.core.annotation.AnnotatedElementUtils;
@@ -10,10 +11,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-public class Oauth2ProviderMapper {
+public class Oauth2ProviderMapperImpl implements Oauth2ProviderMapper {
     private final Map<String, Oauth2Provider> providerMap = new ConcurrentHashMap<>();
 
-    public Oauth2ProviderMapper(ListableBeanFactory beanFactory) {
+    public Oauth2ProviderMapperImpl(ListableBeanFactory beanFactory) {
         beanFactory.getBeansWithAnnotation(Provider.class)
                 .values()
                 .forEach(this::register);

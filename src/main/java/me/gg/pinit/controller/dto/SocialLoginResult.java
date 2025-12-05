@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class NaverLoginResult {
+public class SocialLoginResult {
     private String code;
     private String state;
     private String error;

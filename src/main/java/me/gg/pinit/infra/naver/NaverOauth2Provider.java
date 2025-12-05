@@ -15,7 +15,7 @@ import org.springframework.web.client.RestClient;
 import java.util.List;
 import java.util.Objects;
 
-@Provider
+@Provider("naver")
 public class NaverOauth2Provider implements Oauth2Provider {
     public static final String NAVER_ID_URL = "https://nid.naver.com";
     public static final String NAVER_APP_URL = "https://openapi.naver.com";
