@@ -15,25 +15,27 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class NaverOauth2Service {
-    private final Oauth2Provider naverOauth2Provider;
+public class Oauth2Service {
+    private final Oauth2ProviderMapper oauth2ProviderMapper;
     private final OauthAccountRepository oauthAccountRepository;
     private final MemberService memberService;
 
-    public NaverOauth2Service(Oauth2Provider naverOauth2Provider, OauthAccountRepository oauthAccountRepository, MemberService memberService) {
-        this.naverOauth2Provider = naverOauth2Provider;
+    public Oauth2Service(Oauth2ProviderMapper oauth2ProviderMapper, OauthAccountRepository oauthAccountRepository, MemberService memberService) {
+        this.oauth2ProviderMapper = oauth2ProviderMapper;
         this.oauthAccountRepository = oauthAccountRepository;
         this.memberService = memberService;
     }
 
 
     @Transactional
-    public Member login(String code, String state) {
-        List<Oauth2Token> execute = naverOauth2Provider.grantToken(new OpenIdPublishCommand(code, state));
-        Oauth2Token accessToken = execute.stream().filter(token -> token.getRole().equals("ACCESS_TOKEN")).findFirst()
+    public Member login(String provider, String code, String state) {
+        Oauth2Provider oauth2Provider = oauth2ProviderMapper.get(provider);
+
+        List<Oauth2Token> tokens = oauth2Provider.grantToken(new OpenIdPublishCommand(code, state));
+        Oauth2Token accessToken = tokens.stream().filter(token -> token.getRole().equals("ACCESS_TOKEN")).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("No access token found"));
 
-        Profile profile = naverOauth2Provider.getProfile(accessToken);
+        Profile profile = oauth2Provider.getProfile(accessToken);
 
         OauthAccountId oauthAccountId = new OauthAccountId("", profile.getId());
 
