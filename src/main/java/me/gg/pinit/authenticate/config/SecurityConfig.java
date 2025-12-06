@@ -1,5 +1,6 @@
 package me.gg.pinit.authenticate.config;
 
+import jakarta.servlet.http.HttpServletResponse;
 import me.gg.pinit.authenticate.filter.JwtAuthenticationFilter;
 import me.gg.pinit.authenticate.provider.JwtAuthenticationProvider;
 import me.gg.pinit.infra.JwtTokenProvider;
@@ -34,6 +35,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .exceptionHandling(e -> e.authenticationEntryPoint(
+                        (request, response, ex) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token")
+                ))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/signup", "/refresh", "/login/**", "/v3/**", "/swagger-ui/**").permitAll()
                         .anyRequest().authenticated()
