@@ -4,6 +4,7 @@ import me.gg.pinit.domain.member.Member;
 import me.gg.pinit.domain.member.MemberRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MemberService {
@@ -26,6 +27,7 @@ public class MemberService {
         return member;
     }
 
+    @Transactional
     public Member signup(String username, String password, String nickname) {
         if (memberRepository.existsByUsername(username)) {
             throw new IllegalArgumentException("이미 존재하는 사용자입니다.");
