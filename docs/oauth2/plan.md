@@ -115,7 +115,7 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
 >
 출처: [내 블로그](https://dev.go-gradually.me/entry/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0-%EC%9D%B8%EC%A6%9D-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
 
-![spring security 아키텍처.png](spring%20security%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png)
+![spring security 아키텍처.png](spring%20security%20아키텍처.png)
 
 * Filter: 인증/인가 처리 진입점
 * AuthenticationManager
@@ -486,7 +486,7 @@ ListableBeanFactory 는 Bean Definition 을 가지고 있는데,
 
 스프링 빈 인스턴스 생성 방식은 getBean이 호출 되는순간 해당 인스턴스를 먼저 생성하는 방식을 재귀적으로 적용하기 때문에 문제는 없다.
 
-![Provider 등록 방식.png](Provider%20%EB%93%B1%EB%A1%9D%20%EB%B0%A9%EC%8B%9D.png)
+![Provider 등록 방식.png](Provider%20등록%20방식.png)
 
 즉, "빈 정의" 계층과 "빈 생성" 계층이 나뉘어져 있기 때문에 빈 정보를 가지고 내 내부 필드를 채울 수 있는 것이다.
 
