@@ -45,14 +45,14 @@
                                     href="#operations">Operations</a>
                                 <ul class="text-sm mt-2">
                                     <li><a class="flex no-underline text-gray-700 mb-2 hover:text-gray-900"
-                                           href="#operation-send-publishMemberCreated"><strong
-                                            class="h-6 no-underline text-white uppercase p-1 mr-2 rounded text-xs bg-blue-600"
-                                            title="SEND">SEND</strong><span class="break-all inline-block">publishMemberCreated</span></a>
+                                           href="#operation-send-publishMemberCreated"><span
+                                            class="bg-blue-600 font-bold h-6 no-underline text-white uppercase p-1 mr-2 rounded text-xs"
+                                            title="SEND">SEND</span><span class="break-all inline-block">publishMemberCreated</span></a>
                                     </li>
                                     <li><a class="flex no-underline text-gray-700 mb-2 hover:text-gray-900"
-                                           href="#operation-receive-subscribeMemberCreated"><strong
-                                            class="h-6 no-underline text-white uppercase p-1 mr-2 rounded text-xs bg-green-600"
-                                            title="RECEIVE">RECEIVE</strong><span class="break-all inline-block">subscribeMemberCreated</span></a>
+                                           href="#operation-receive-subscribeMemberCreated"><span
+                                            class="bg-green-600 font-bold h-6 no-underline text-white uppercase p-1 mr-2 rounded text-xs"
+                                            title="RECEIVE">RECEIVE</span><span class="break-all inline-block">subscribeMemberCreated</span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -77,10 +77,9 @@
                             <div class="text-4xl">Pinit auth events over RabbitMQ<!-- -->  <!-- --> 1.0.0</div>
                             <ul class="flex flex-wrap mt-2 leading-normal">
                                 <li class="inline-block mt-2 mr-2"><a
-                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
                                         href="https://www.iana.org/assignments/media-types/application/json"
-                                        rel="nofollow noopener noreferrer"
-                                        target="_blank" title="Opens in new window"><span>application/json</span></a>
+                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
+                                        rel="nofollow noopener noreferrer" target="_blank"><span>application/json</span></a>
                                 </li>
                             </ul>
                             <div class="mt-4">
@@ -97,10 +96,9 @@
                                 <div class="panel-item">
                                     <div class="panel-item--center px-8">
                                         <div class="shadow rounded bg-gray-200 p-4 border bg-gray-100">
-                                            <div><span class="font-mono text-base">amqp://Rabbitmq:5672/</span><strong
-                                                    class="bg-teal-500 no-underline text-white uppercase rounded mx-2 px-2 py-1 text-sm">amqp
-                                                0-9-1</strong><strong
-                                                    class="bg-blue-500 no-underline text-white uppercase rounded px-2 py-1 text-sm">rabbitmq</strong>
+                                            <div><span class="font-mono text-base">amqp://Rabbitmq:5672/</span><span
+                                                    class="bg-teal-500 font-bold no-underline text-white uppercase rounded mx-2 px-2 py-1 text-sm">amqp 0-9-1</span><span
+                                                    class="bg-blue-500 font-bold no-underline text-white uppercase rounded px-2 py-1 text-sm">rabbitmq</span>
                                             </div>
                                             <div id="server-rabbitmq-security"></div>
                                             <div class="mt-2"></div>
@@ -118,19 +116,19 @@
                                 <div>
                                     <div class="panel-item--center px-8">
                                         <div class="mb-4"><h3><span
-                                                class="font-mono text-white uppercase p-1 rounded mr-2 bg-blue-600"
+                                                class="font-mono border uppercase p-1 rounded mr-2 border-blue-600 text-blue-500"
                                                 title="send">SEND</span> <span class="font-mono text-base">member.created</span>
                                         </h3></div>
                                         <p class="text-gray-600 text-sm mt-2">회원 생성 이벤트 발행</p>
                                         <div class="border bg-gray-100 rounded px-4 py-2 mt-2">
                                             <div class="text-sm text-gray-700">Operation ID<span
-                                                    class="bg-orange-600 text-white rounded text-xs ml-2 py-0 px-2">publishMemberCreated</span>
+                                                    class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">publishMemberCreated</span>
                                             </div>
                                         </div>
                                         <div class="mt-2 text-sm"><p>Available only on servers:</p>
                                             <ul class="flex flex-wrap leading-normal">
                                                 <li class="inline-block mt-2 mr-2"><a class="border border-solid border-blue-300 hover:bg-blue-300 hover:text-blue-600 text-blue-500 font-bold no-underline text-xs rounded px-3 py-1 cursor-pointer"
-                                                                                      href="blank#server-rabbitmq"><span
+                                                                                      href="#server-rabbitmq"><span
                                                         class="underline">rabbitmq</span></a></li>
                                             </ul>
                                         </div>
@@ -139,11 +137,10 @@
                                             <div>
                                                 <div class="flex py-2">
                                                     <div class=" mr-2">
-                                                        <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
-                                                                type="button">
+                                                        <button class="focus:outline-none undefined" type="button">
                                                             <div class="inline-block">
-                                                                <div class="inline-block text-sm"><span>Channel specific information</span><strong
-                                                                        class="bg-teal-500 no-underline text-white uppercase rounded mx-2 px-2 py-1 text-xs">amqp</strong>
+                                                                <div class="inline-block text-sm"><span>Channel specific information</span><span
+                                                                        class="bg-teal-500 font-bold no-underline text-white uppercase rounded mx-2 px-2 py-1 text-xs">amqp</span>
                                                                 </div>
                                                             </div>
                                                             <svg class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  " fill="currentColor"
@@ -182,14 +179,14 @@
                                                     <div>
                                                         <div class="flex py-2">
                                                             <div class="min-w-1/4 mr-2">
-                                                                <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                                                                <button class="focus:outline-none undefined"
                                                                         type="button">
                                                                     <div class="inline-block"><span
                                                                             class="break-anywhere text-sm italic">exchange</span>
                                                                     </div>
                                                                     <svg class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  " fill="currentColor"
-                                                                         height="1em" stroke="currentColor"
                                                                          stroke-width="0" viewBox="0 0 20 20"
+                                                                         height="1em" stroke="currentColor"
                                                                          width="1em"
                                                                          xmlns="http://www.w3.org/2000/svg">
                                                                         <path clip-rule="evenodd"
@@ -266,27 +263,27 @@
                                                     <div class="panel-item--center px-8">
                                                         <div class="shadow rounded bg-gray-200 p-4 border">
                                                             <div><span
-                                                                    class="text-gray-700 mr-2">Member created event</span>
+                                                                    class="text-gray-700 mr-2">Member created event</span><span
+                                                                    class="border text-orange-600 rounded text-xs py-0 px-2">memberCreated</span>
                                                             </div>
                                                             <ul class="leading-normal mt-2 mb-4 space-x-2 space-y-2">
                                                                 <li class="inline-block"><a
-                                                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
                                                                         href="https://www.iana.org/assignments/media-types/application/json"
-                                                                        rel="nofollow noopener noreferrer"
+                                                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
                                                                         target="_blank"
-                                                                        title="Opens in new window"><span>application/json</span></a>
+                                                                        rel="nofollow noopener noreferrer"><span>application/json</span></a>
                                                                 </li>
                                                             </ul>
                                                             <div class="border bg-gray-100 rounded px-4 py-2 mt-2">
                                                                 <div class="text-sm text-gray-700">Message ID<span
-                                                                        class="bg-orange-600 text-white rounded text-xs ml-2 py-0 px-2">memberCreated</span>
+                                                                        class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">memberCreated</span>
                                                                 </div>
                                                             </div>
                                                             <div class="mt-2">
                                                                 <div>
                                                                     <div class="flex py-2">
                                                                         <div class="min-w-1/4 mr-2">
-                                                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                                                                            <button class="focus:outline-none undefined"
                                                                                     type="button">
                                                                                 <div class="inline-block"><span
                                                                                         class="break-anywhere text-sm ">Payload</span>
@@ -295,8 +292,8 @@
                                                                                      fill="currentColor"
                                                                                      height="1em"
                                                                                      stroke="currentColor" stroke-width="0"
-                                                                                     viewBox="0 0 20 20"
                                                                                      width="1em"
+                                                                                     viewBox="0 0 20 20"
                                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                                     <path clip-rule="evenodd"
                                                                                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -331,10 +328,9 @@
                                                                                         <div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">
                                                                                             integer
                                                                                         </div>
-                                                                                        <div class="inline-block">
-                                                                                            <strong class="bg-yellow-600 no-underline text-white rounded lowercase mr-2 p-1 text-xs">format:
-                                                                                                <!-- -->int64</strong>
-                                                                                        </div>
+                                                                                        <div class="inline-block"><span
+                                                                                                class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format:
+                                                                                            <!-- -->int64</span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -368,14 +364,14 @@
                                                             <h4 class="text-white text-lg">Examples</h4>
                                                             <div class="mt-4">
                                                                 <div>
-                                                                    <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                                                                    <button class="focus:outline-none undefined"
                                                                             type="button">
                                                                         <div class="inline-block"><span
                                                                                 class="inline-block w-20 py-0.5 mr-1 text-gray-200 text-sm border text-center rounded focus:outline-none">Payload</span>
                                                                         </div>
                                                                         <svg class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  fill-current text-gray-200" fill="currentColor"
-                                                                             height="1em" stroke="currentColor"
                                                                              stroke-width="0" viewBox="0 0 20 20"
+                                                                             height="1em" stroke="currentColor"
                                                                              width="1em"
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path clip-rule="evenodd"
@@ -410,19 +406,19 @@
                                 <div>
                                     <div class="panel-item--center px-8">
                                         <div class="mb-4"><h3><span
-                                                class="font-mono text-white uppercase p-1 rounded mr-2 bg-green-600"
+                                                class="font-mono border uppercase p-1 rounded mr-2 border-green-600 text-green-600"
                                                 title="receive">RECEIVE</span> <span class="font-mono text-base">member.created</span>
                                         </h3></div>
                                         <p class="text-gray-600 text-sm mt-2">회원 생성 이벤트 구독</p>
                                         <div class="border bg-gray-100 rounded px-4 py-2 mt-2">
                                             <div class="text-sm text-gray-700">Operation ID<span
-                                                    class="bg-orange-600 text-white rounded text-xs ml-2 py-0 px-2">subscribeMemberCreated</span>
+                                                    class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">subscribeMemberCreated</span>
                                             </div>
                                         </div>
                                         <div class="mt-2 text-sm"><p>Available only on servers:</p>
                                             <ul class="flex flex-wrap leading-normal">
                                                 <li class="inline-block mt-2 mr-2"><a class="border border-solid border-blue-300 hover:bg-blue-300 hover:text-blue-600 text-blue-500 font-bold no-underline text-xs rounded px-3 py-1 cursor-pointer"
-                                                                                      href="blank#server-rabbitmq"><span
+                                                                                      href="#server-rabbitmq"><span
                                                         class="underline">rabbitmq</span></a></li>
                                             </ul>
                                         </div>
@@ -431,11 +427,10 @@
                                             <div>
                                                 <div class="flex py-2">
                                                     <div class=" mr-2">
-                                                        <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
-                                                                type="button">
+                                                        <button class="focus:outline-none undefined" type="button">
                                                             <div class="inline-block">
-                                                                <div class="inline-block text-sm"><span>Channel specific information</span><strong
-                                                                        class="bg-teal-500 no-underline text-white uppercase rounded mx-2 px-2 py-1 text-xs">amqp</strong>
+                                                                <div class="inline-block text-sm"><span>Channel specific information</span><span
+                                                                        class="bg-teal-500 font-bold no-underline text-white uppercase rounded mx-2 px-2 py-1 text-xs">amqp</span>
                                                                 </div>
                                                             </div>
                                                             <svg class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  " fill="currentColor"
@@ -474,14 +469,14 @@
                                                     <div>
                                                         <div class="flex py-2">
                                                             <div class="min-w-1/4 mr-2">
-                                                                <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                                                                <button class="focus:outline-none undefined"
                                                                         type="button">
                                                                     <div class="inline-block"><span
                                                                             class="break-anywhere text-sm italic">exchange</span>
                                                                     </div>
                                                                     <svg class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  " fill="currentColor"
-                                                                         height="1em" stroke="currentColor"
                                                                          stroke-width="0" viewBox="0 0 20 20"
+                                                                         height="1em" stroke="currentColor"
                                                                          width="1em"
                                                                          xmlns="http://www.w3.org/2000/svg">
                                                                         <path clip-rule="evenodd"
@@ -558,27 +553,27 @@
                                                     <div class="panel-item--center px-8">
                                                         <div class="shadow rounded bg-gray-200 p-4 border">
                                                             <div><span
-                                                                    class="text-gray-700 mr-2">Member created event</span>
+                                                                    class="text-gray-700 mr-2">Member created event</span><span
+                                                                    class="border text-orange-600 rounded text-xs py-0 px-2">memberCreated</span>
                                                             </div>
                                                             <ul class="leading-normal mt-2 mb-4 space-x-2 space-y-2">
                                                                 <li class="inline-block"><a
-                                                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
                                                                         href="https://www.iana.org/assignments/media-types/application/json"
-                                                                        rel="nofollow noopener noreferrer"
+                                                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
                                                                         target="_blank"
-                                                                        title="Opens in new window"><span>application/json</span></a>
+                                                                        rel="nofollow noopener noreferrer"><span>application/json</span></a>
                                                                 </li>
                                                             </ul>
                                                             <div class="border bg-gray-100 rounded px-4 py-2 mt-2">
                                                                 <div class="text-sm text-gray-700">Message ID<span
-                                                                        class="bg-orange-600 text-white rounded text-xs ml-2 py-0 px-2">memberCreated</span>
+                                                                        class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">memberCreated</span>
                                                                 </div>
                                                             </div>
                                                             <div class="mt-2">
                                                                 <div>
                                                                     <div class="flex py-2">
                                                                         <div class="min-w-1/4 mr-2">
-                                                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                                                                            <button class="focus:outline-none undefined"
                                                                                     type="button">
                                                                                 <div class="inline-block"><span
                                                                                         class="break-anywhere text-sm ">Payload</span>
@@ -587,8 +582,8 @@
                                                                                      fill="currentColor"
                                                                                      height="1em"
                                                                                      stroke="currentColor" stroke-width="0"
-                                                                                     viewBox="0 0 20 20"
                                                                                      width="1em"
+                                                                                     viewBox="0 0 20 20"
                                                                                      xmlns="http://www.w3.org/2000/svg">
                                                                                     <path clip-rule="evenodd"
                                                                                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -623,10 +618,9 @@
                                                                                         <div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">
                                                                                             integer
                                                                                         </div>
-                                                                                        <div class="inline-block">
-                                                                                            <strong class="bg-yellow-600 no-underline text-white rounded lowercase mr-2 p-1 text-xs">format:
-                                                                                                <!-- -->int64</strong>
-                                                                                        </div>
+                                                                                        <div class="inline-block"><span
+                                                                                                class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format:
+                                                                                            <!-- -->int64</span></div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -660,14 +654,14 @@
                                                             <h4 class="text-white text-lg">Examples</h4>
                                                             <div class="mt-4">
                                                                 <div>
-                                                                    <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+                                                                    <button class="focus:outline-none undefined"
                                                                             type="button">
                                                                         <div class="inline-block"><span
                                                                                 class="inline-block w-20 py-0.5 mr-1 text-gray-200 text-sm border text-center rounded focus:outline-none">Payload</span>
                                                                         </div>
                                                                         <svg class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  fill-current text-gray-200" fill="currentColor"
-                                                                             height="1em" stroke="currentColor"
                                                                              stroke-width="0" viewBox="0 0 20 20"
+                                                                             height="1em" stroke="currentColor"
                                                                              width="1em"
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path clip-rule="evenodd"
@@ -707,27 +701,27 @@
                                 <div class="panel-item">
                                     <div class="panel-item--center px-8">
                                         <div class="shadow rounded bg-gray-200 p-4 border">
-                                            <div><strong class="text-gray-700 mr-2">#<!-- --> 1</strong><span
-                                                    class="text-gray-700 mr-2">Member created event</span></div>
+                                            <div><span class="text-gray-700 font-bold mr-2">#<!-- -->1</span><span
+                                                    class="text-gray-700 mr-2">Member created event</span><span
+                                                    class="border text-orange-600 rounded text-xs py-0 px-2">MemberCreated</span>
+                                            </div>
                                             <ul class="leading-normal mt-2 mb-4 space-x-2 space-y-2">
                                                 <li class="inline-block"><a
-                                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
                                                         href="https://www.iana.org/assignments/media-types/application/json"
-                                                        rel="nofollow noopener noreferrer"
-                                                        target="_blank" title="Opens in new window"><span>application/json</span></a>
+                                                        class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1"
+                                                        rel="nofollow noopener noreferrer" target="_blank"><span>application/json</span></a>
                                                 </li>
                                             </ul>
                                             <div class="border bg-gray-100 rounded px-4 py-2 mt-2">
                                                 <div class="text-sm text-gray-700">Message ID<span
-                                                        class="bg-orange-600 text-white rounded text-xs ml-2 py-0 px-2">MemberCreated</span>
+                                                        class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">MemberCreated</span>
                                                 </div>
                                             </div>
                                             <div class="mt-2" id="message-MemberCreated-payload">
                                                 <div>
                                                     <div class="flex py-2">
                                                         <div class="min-w-1/4 mr-2">
-                                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
-                                                                    type="button">
+                                                            <button class="focus:outline-none undefined" type="button">
                                                                 <div class="inline-block"><span
                                                                         class="break-anywhere text-sm ">Payload</span>
                                                                 </div>
@@ -765,9 +759,9 @@
                                                                         <div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">
                                                                             integer
                                                                         </div>
-                                                                        <div class="inline-block"><strong
-                                                                                class="bg-yellow-600 no-underline text-white rounded lowercase mr-2 p-1 text-xs">format:
-                                                                            <!-- -->int64</strong></div>
+                                                                        <div class="inline-block"><span
+                                                                                class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format:
+                                                                            <!-- -->int64</span></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -807,6 +801,96 @@
 
 <script src="js/asyncapi-ui.min.js" type="application/javascript"></script>
 
-<script src="js/app.js" type="application/javascript"></script>
+<script>
+    const schema = {
+        "asyncapi": "3.0.0",
+        "info": {
+            "title": "Pinit auth events over RabbitMQ",
+            "version": "1.0.0",
+            "description": "핀잇의 auth 서버가 발행/구독 하는 이벤트 정리"
+        },
+        "servers": {
+            "rabbitmq": {
+                "host": "Rabbitmq:5672",
+                "protocol": "amqp",
+                "protocolVersion": "0-9-1"
+            }
+        },
+        "defaultContentType": "application/json",
+        "channels": {
+            "member.created": {
+                "address": "member.created",
+                "messages": {
+                    "memberCreated": {
+                        "name": "MemberCreated",
+                        "title": "Member created event",
+                        "payload": {
+                            "type": "object",
+                            "properties": {
+                                "memberId": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "x-parser-schema-id": "<anonymous-schema-2>"
+                                },
+                                "nickname": {
+                                    "type": "string",
+                                    "x-parser-schema-id": "<anonymous-schema-3>"
+                                }
+                            },
+                            "required": [
+                                "memberId",
+                                "nickname"
+                            ],
+                            "x-parser-schema-id": "<anonymous-schema-1>"
+                        },
+                        "x-parser-unique-object-id": "memberCreated"
+                    }
+                },
+                "bindings": {
+                    "amqp": {
+                        "is": "routingKey",
+                        "exchange": {
+                            "name": "member-exchange",
+                            "type": "direct",
+                            "durable": true,
+                            "autoDelete": false
+                        }
+                    }
+                },
+                "x-parser-unique-object-id": "member.created"
+            }
+        },
+        "operations": {
+            "publishMemberCreated": {
+                "action": "send",
+                "channel": "$ref:$.channels.member.created",
+                "summary": "회원 생성 이벤트 발행",
+                "messages": [
+                    "$ref:$.channels.member.created.messages.memberCreated"
+                ],
+                "x-parser-unique-object-id": "publishMemberCreated"
+            },
+            "subscribeMemberCreated": {
+                "action": "receive",
+                "channel": "$ref:$.channels.member.created",
+                "summary": "회원 생성 이벤트 구독",
+                "messages": [
+                    "$ref:$.channels.member.created.messages.memberCreated"
+                ],
+                "x-parser-unique-object-id": "subscribeMemberCreated"
+            }
+        },
+        "components": {
+            "messages": {
+                "MemberCreated": "$ref:$.channels.member.created.messages.memberCreated"
+            }
+        },
+        "x-parser-spec-parsed": true,
+        "x-parser-api-version": 3,
+        "x-parser-spec-stringified": true
+    };
+    const config = {"show": {"sidebar": true}, "sidebar": {"showOperations": "byDefault"}};
+    AsyncApiStandalone.hydrate({schema, config}, document.getElementById("root"));
+</script>
 </body>
 </html>
