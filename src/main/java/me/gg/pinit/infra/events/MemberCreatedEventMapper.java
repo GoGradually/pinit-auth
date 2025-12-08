@@ -13,12 +13,12 @@ public class MemberCreatedEventMapper implements AmqpEventMapper<MemberCreatedEv
 
     @Override
     public String exchange() {
-        return "auth.member.fanout";
+        return MemberMessaging.DIRECT_EXCHANGE;
     }
 
     @Override
     public String routingKey() {
-        return "";
+        return MemberMessaging.RK_MEMBER_CREATED;
     }
 
     @Override
