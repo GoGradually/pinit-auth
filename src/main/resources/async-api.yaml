@@ -14,15 +14,15 @@ defaultContentType: application/json
 
 channels:
   member.created:
-    address: member.created
+    address: member.created # 채널의 주소 정의, RabbitMQ의 라우팅 키로 사용
     messages:
       memberCreated:
         $ref: '#/components/messages/MemberCreated'
     bindings:
       amqp:
         is: routingKey
-        exchange:
-          name: member-exchange
+        exchange: # RabbitMQ의 익스체인지 설정. exchange 이름: member-exchange
+          name: auth.member.direct
           type: direct
           durable: true
           autoDelete: false
