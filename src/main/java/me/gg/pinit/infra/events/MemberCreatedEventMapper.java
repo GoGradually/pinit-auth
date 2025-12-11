@@ -4,6 +4,8 @@ import me.gg.pinit.domain.event.MemberCreatedEvent;
 import me.gg.pinit.infra.events.dto.MemberCreatedPayload;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class MemberCreatedEventMapper implements AmqpEventMapper<MemberCreatedEvent> {
     @Override
@@ -23,6 +25,6 @@ public class MemberCreatedEventMapper implements AmqpEventMapper<MemberCreatedEv
 
     @Override
     public Object payload(MemberCreatedEvent event) {
-        return new MemberCreatedPayload(event.getMemberId(), event.getNickname());
+        return new MemberCreatedPayload(event.getMemberId(), event.getNickname(), LocalDateTime.now());
     }
 }

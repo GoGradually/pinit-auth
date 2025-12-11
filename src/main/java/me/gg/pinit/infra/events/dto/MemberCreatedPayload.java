@@ -1,5 +1,7 @@
 package me.gg.pinit.infra.events.dto;
 
 
-public record MemberCreatedPayload(Long memberId, String nickname) {
+import java.time.LocalDateTime;
+
+public record MemberCreatedPayload(Long memberId, String nickname, LocalDateTime occurredAt) {
 }
