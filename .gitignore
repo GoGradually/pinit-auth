@@ -39,3 +39,5 @@ out/
 
 ### key
 keys/
+
+src/main/resources/application*.yml

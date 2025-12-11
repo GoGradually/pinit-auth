@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:pinit-auth-test;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope: openid
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+app:
+  jwt:
+    secret: 012345648798765465465564
+    expiration-seconds: 3600
+  frontend-base-url: https://pinit.go-gradually.me
+  cookie:
+    domain: .pinit.go-gradually.me
+    secure: true
+    same-site: None
