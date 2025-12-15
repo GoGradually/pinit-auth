@@ -1,24 +1,24 @@
 package me.gg.pinit.infra.events.outbox;
 
 import me.gg.pinit.infra.events.rabbitmq.RabbitEvent;
-import me.gg.pinit.infra.events.rabbitmq.RabbitEventPublisher;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class OutboxService {
     private final OutboxRepository outboxRepository;
-    private final RabbitEventPublisher rabbitEventPublisher;
+    private final ApplicationEventPublisher applicationEventPublisher;
 
-    public OutboxService(OutboxRepository outboxRepository, RabbitEventPublisher rabbitEventPublisher) {
+    public OutboxService(OutboxRepository outboxRepository, ApplicationEventPublisher applicationEventPublisher) {
         this.outboxRepository = outboxRepository;
-        this.rabbitEventPublisher = rabbitEventPublisher;
+        this.applicationEventPublisher = applicationEventPublisher;
     }
 
     @Transactional
     public void save(Outbox outbox) {
         outboxRepository.save(outbox);
-        rabbitEventPublisher.publish(new RabbitEvent(outbox.getId()));
+        applicationEventPublisher.publishEvent(new RabbitEvent(outbox.getId()));
     }
 
     @Transactional
