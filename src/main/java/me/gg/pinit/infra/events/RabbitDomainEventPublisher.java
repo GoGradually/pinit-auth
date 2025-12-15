@@ -3,11 +3,13 @@ package me.gg.pinit.infra.events;
 import me.gg.pinit.domain.event.DomainEvent;
 import me.gg.pinit.domain.event.DomainEventPublisher;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Component
 public class RabbitDomainEventPublisher implements DomainEventPublisher {
     private final RabbitTemplate rabbitTemplate;
     private final Map<Class<? extends DomainEvent>, AmqpEventMapper<? extends DomainEvent>> mappers;
