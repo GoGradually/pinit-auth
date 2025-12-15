@@ -1,4 +1,4 @@
-package me.gg.pinit.controller.dto;
+package me.gg.pinit.interfaces.oauth2.dto;
 
 import lombok.Getter;
 import lombok.Setter;

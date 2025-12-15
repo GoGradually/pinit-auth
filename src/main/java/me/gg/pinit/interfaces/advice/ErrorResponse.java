@@ -1,4 +1,4 @@
-package me.gg.pinit.controller.dto;
+package me.gg.pinit.interfaces.advice;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

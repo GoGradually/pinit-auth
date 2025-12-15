@@ -1,4 +1,4 @@
-package me.gg.pinit.controller;
+package me.gg.pinit.interfaces.member;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -9,12 +9,12 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
-import me.gg.pinit.controller.dto.LoginRequest;
-import me.gg.pinit.controller.dto.LoginResponse;
-import me.gg.pinit.controller.dto.SignupRequest;
 import me.gg.pinit.domain.member.Member;
 import me.gg.pinit.infra.jwt.JwtTokenProvider;
 import me.gg.pinit.infra.jwt.TokenCookieFactory;
+import me.gg.pinit.interfaces.member.dto.LoginRequest;
+import me.gg.pinit.interfaces.member.dto.LoginResponse;
+import me.gg.pinit.interfaces.member.dto.SignupRequest;
 import me.gg.pinit.service.member.MemberService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
-package me.gg.pinit.controller.advice;
+package me.gg.pinit.interfaces.advice;
 
-import me.gg.pinit.controller.dto.ErrorResponse;
 import me.gg.pinit.infra.oauth.exception.OIDCException;
 import me.gg.pinit.service.exception.ProviderNotFoundException;
 import org.slf4j.Logger;

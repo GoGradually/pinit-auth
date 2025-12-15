@@ -1,4 +1,4 @@
-package me.gg.pinit.controller;
+package me.gg.pinit.interfaces.oauth2;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -9,13 +9,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import me.gg.pinit.controller.dto.LoginResponse;
-import me.gg.pinit.controller.dto.OauthLoginSetting;
-import me.gg.pinit.controller.dto.SocialLoginResult;
 import me.gg.pinit.domain.member.Member;
 import me.gg.pinit.domain.oidc.Oauth2Provider;
 import me.gg.pinit.infra.jwt.JwtTokenProvider;
 import me.gg.pinit.infra.jwt.TokenCookieFactory;
+import me.gg.pinit.interfaces.member.dto.LoginResponse;
+import me.gg.pinit.interfaces.oauth2.dto.OauthLoginSetting;
+import me.gg.pinit.interfaces.oauth2.dto.SocialLoginResult;
 import me.gg.pinit.service.oauth2.Oauth2ProviderMapper;
 import me.gg.pinit.service.oauth2.Oauth2Service;
 import org.springframework.beans.factory.annotation.Value;
