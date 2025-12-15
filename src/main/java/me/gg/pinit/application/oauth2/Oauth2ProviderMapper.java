@@ -1,4 +1,4 @@
-package me.gg.pinit.service.oauth2;
+package me.gg.pinit.application.oauth2;
 
 import me.gg.pinit.domain.oidc.Oauth2Provider;
 

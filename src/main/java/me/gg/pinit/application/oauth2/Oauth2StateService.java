@@ -1,4 +1,4 @@
-package me.gg.pinit.service.oauth2;
+package me.gg.pinit.application.oauth2;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;

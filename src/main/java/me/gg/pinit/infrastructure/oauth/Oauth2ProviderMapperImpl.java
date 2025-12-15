@@ -1,8 +1,8 @@
 package me.gg.pinit.infrastructure.oauth;
 
+import me.gg.pinit.application.exception.ProviderNotFoundException;
+import me.gg.pinit.application.oauth2.Oauth2ProviderMapper;
 import me.gg.pinit.domain.oidc.Oauth2Provider;
-import me.gg.pinit.service.exception.ProviderNotFoundException;
-import me.gg.pinit.service.oauth2.Oauth2ProviderMapper;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.core.annotation.AnnotatedElementUtils;

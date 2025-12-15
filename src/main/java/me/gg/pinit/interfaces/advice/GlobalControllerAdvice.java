@@ -1,7 +1,7 @@
 package me.gg.pinit.interfaces.advice;
 
+import me.gg.pinit.application.exception.ProviderNotFoundException;
 import me.gg.pinit.infrastructure.oauth.exception.OIDCException;
-import me.gg.pinit.service.exception.ProviderNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

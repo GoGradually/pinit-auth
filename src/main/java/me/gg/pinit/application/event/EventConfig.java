@@ -1,4 +1,4 @@
-package me.gg.pinit.service.event;
+package me.gg.pinit.application.event;
 
 import me.gg.pinit.domain.event.DomainEventPublisher;
 import org.springframework.context.ApplicationEventPublisher;
