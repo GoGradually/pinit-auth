@@ -1,10 +1,10 @@
-package me.gg.pinit.infra.events.dto;
+package me.gg.pinit.infra.events.member;
 
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import lombok.Getter;
-import me.gg.pinit.infra.events.Outbox;
+import me.gg.pinit.infra.events.outbox.Outbox;
 
 import java.time.LocalDateTime;
 
@@ -23,5 +23,15 @@ public class MemberCreatedPayload extends Outbox {
         this.memberId = memberId;
         this.nickname = nickname;
         this.occurredAt = occurredAt;
+    }
+
+    @Override
+    public String exchange() {
+        return MemberMessaging.DIRECT_EXCHANGE;
+    }
+
+    @Override
+    public String routingKey() {
+        return MemberMessaging.RK_MEMBER_CREATED;
     }
 }
