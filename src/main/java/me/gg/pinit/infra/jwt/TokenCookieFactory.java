@@ -1,5 +1,6 @@
-package me.gg.pinit.infra.config;
+package me.gg.pinit.infra.jwt;
 
+import me.gg.pinit.infra.jwt.config.CookieProperties;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

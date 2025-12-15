@@ -1,4 +1,4 @@
-package me.gg.pinit.infra;
+package me.gg.pinit.infra.jwt;
 
 import java.io.IOException;
 import java.nio.file.Files;

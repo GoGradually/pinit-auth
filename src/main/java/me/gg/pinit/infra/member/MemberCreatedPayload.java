@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.events.member;
+package me.gg.pinit.infra.member;
 
 
 import jakarta.persistence.DiscriminatorValue;

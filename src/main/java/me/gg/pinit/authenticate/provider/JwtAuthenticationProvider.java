@@ -1,7 +1,7 @@
 package me.gg.pinit.authenticate.provider;
 
 import me.gg.pinit.authenticate.authentication.JwtAuthenticationToken;
-import me.gg.pinit.infra.JwtTokenProvider;
+import me.gg.pinit.infra.jwt.JwtTokenProvider;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;

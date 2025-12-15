@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.dto;
+package me.gg.pinit.infra.oauth.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.config;
+package me.gg.pinit.infra.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

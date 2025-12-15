@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.exception;
+package me.gg.pinit.infra.oauth.exception;
 
 public class OIDCException extends RuntimeException {
     public OIDCException(String message) {

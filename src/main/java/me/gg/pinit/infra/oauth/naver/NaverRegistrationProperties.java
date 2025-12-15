@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.naver;
+package me.gg.pinit.infra.oauth.naver;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package me.gg.pinit.infra;
+package me.gg.pinit.infra.oauth;
 
 import me.gg.pinit.domain.oidc.Oauth2Provider;
 import me.gg.pinit.service.Oauth2ProviderMapper;

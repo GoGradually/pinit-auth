@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.events.member;
+package me.gg.pinit.infra.member;
 
 public class MemberMessaging {
     public static final String DIRECT_EXCHANGE = "auth.member.direct";

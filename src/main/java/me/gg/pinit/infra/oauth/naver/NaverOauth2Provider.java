@@ -1,14 +1,14 @@
-package me.gg.pinit.infra.naver;
+package me.gg.pinit.infra.oauth.naver;
 
 import lombok.extern.slf4j.Slf4j;
 import me.gg.pinit.domain.oidc.Oauth2Provider;
 import me.gg.pinit.domain.oidc.Oauth2Token;
 import me.gg.pinit.domain.oidc.OpenIdCommand;
 import me.gg.pinit.domain.oidc.Profile;
-import me.gg.pinit.infra.Provider;
-import me.gg.pinit.infra.dto.OpenIdProfileResponse;
-import me.gg.pinit.infra.dto.OpenIdTokenRequest;
-import me.gg.pinit.infra.dto.OpenIdTokenResponse;
+import me.gg.pinit.infra.oauth.Provider;
+import me.gg.pinit.infra.oauth.dto.OpenIdProfileResponse;
+import me.gg.pinit.infra.oauth.dto.OpenIdTokenRequest;
+import me.gg.pinit.infra.oauth.dto.OpenIdTokenResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;

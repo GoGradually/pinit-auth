@@ -1,4 +1,4 @@
-package me.gg.pinit.infra.config;
+package me.gg.pinit.infra.jwt.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

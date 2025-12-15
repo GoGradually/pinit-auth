@@ -1,4 +1,4 @@
-package me.gg.pinit.infra;
+package me.gg.pinit.infra.oauth;
 
 import org.springframework.stereotype.Component;
 
