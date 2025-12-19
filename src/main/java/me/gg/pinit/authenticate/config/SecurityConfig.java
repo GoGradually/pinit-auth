@@ -39,7 +39,7 @@ public class SecurityConfig {
                         (request, response, ex) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token")
                 ))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/signup", "/refresh", "/login/**", "/v3/**", "/swagger-ui/**", "/async-api/**").permitAll()
+                        .requestMatchers("/actuator/health/**", "/login", "/signup", "/refresh", "/login/**", "/v3/**", "/swagger-ui/**", "/async-api/**").permitAll()
                         .anyRequest().authenticated()
                 );
 
