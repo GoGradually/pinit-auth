@@ -1,0 +1,39 @@
+app:
+  frontend-base-url: http://localhost:5173
+  cookie:
+    domain: localhost
+    secure: false
+    same-site: Lax
+
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/pinit_notification?characterEncoding=UTF-8
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update    # dev: update, create-drop / prod: validate 추천
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    open-in-view: false
+  data:
+    redis:
+      host: ${REDIS_HOST}      # Redis 서버 주소
+      port: ${REDIS_PORT}           # Redis 포트
+      password: ${REDIS_PASSWORD}
+      database: 0          # 기본 DB index
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+  application:
+    name: pinit-auth

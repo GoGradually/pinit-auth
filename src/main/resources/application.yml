@@ -1,0 +1,18 @@
+app:
+  frontend-base-url: https://pinit.go-gradually.me
+  cookie:
+    domain: .pinit.go-gradually.me
+    secure: true
+    same-site: None
+
+oauth2:
+  client:
+    registration:
+      naver:
+        client-id: E2im4myhhRISZbjpmvQP
+        client-secret: ${NAVER_OIDC_SECRET}
+        redirect-uri: "{baseUrl}/login/callback/{registrationId}"
+        provider: naver
+
+server:
+  forward-headers-strategy: framework
