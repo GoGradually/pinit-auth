@@ -40,7 +40,10 @@ out/
 ### key
 keys/
 
-src/main/resources/application*.yml
-
 ### async api documentation
 src/main/resources/static/async-api/**
+
+
+
+### secret
+k8s/secret.yaml

@@ -48,6 +48,8 @@ dependencies {
     testImplementation 'com.h2database:h2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // Actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     // RabbitMQ
     implementation 'org.springframework.boot:spring-boot-starter-amqp'

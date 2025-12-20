@@ -5,6 +5,7 @@ import me.gg.pinit.authenticate.filter.JwtAuthenticationFilter;
 import me.gg.pinit.authenticate.provider.JwtAuthenticationProvider;
 import me.gg.pinit.infrastructure.jwt.JwtTokenProvider;
 import me.gg.pinit.infrastructure.jwt.RsaKeyProvider;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -29,6 +30,12 @@ import java.util.List;
 
 @Configuration
 public class SecurityConfig {
+
+    @Value("${path.key.jwt.private}")
+    private String privateKeyPath;
+    @Value("${path.key.jwt.public}")
+    private String publicKeyPath;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationManager authenticationManager) {
         http
@@ -39,7 +46,7 @@ public class SecurityConfig {
                         (request, response, ex) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or missing token")
                 ))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/signup", "/refresh", "/login/**", "/v3/**", "/swagger-ui/**", "/async-api/**").permitAll()
+                        .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness", "/login", "/signup", "/refresh", "/login/**", "/v3/**", "/swagger-ui/**", "/async-api/**").permitAll()
                         .anyRequest().authenticated()
                 );
 
@@ -73,8 +80,8 @@ public class SecurityConfig {
 
     @Bean
     public JwtTokenProvider jwtTokenProvider() {
-        PrivateKey privateKey = RsaKeyProvider.loadPrivateKey("keys/private_key.pem");
-        PublicKey publicKey = RsaKeyProvider.loadPublicKey("keys/public_key.pem");
+        PrivateKey privateKey = RsaKeyProvider.loadPrivateKey(privateKeyPath);
+        PublicKey publicKey = RsaKeyProvider.loadPublicKey(publicKeyPath);
         return new JwtTokenProvider(privateKey, publicKey, "https://pinit.go-gradually.me", Duration.ofMinutes(5), Duration.ofDays(14));
     }
 

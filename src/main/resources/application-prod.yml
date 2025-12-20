@@ -1,0 +1,46 @@
+app:
+  frontend-base-url: https://pinit.go-gradually.me
+  cookie:
+    domain: .pinit.go-gradually.me
+    secure: true
+    same-site: None
+
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate    # dev: update, create-drop / prod: validate 추천
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/pinit_notification?characterEncoding=UTF-8
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    addresses: amqp://${RABBITMQ_HOST}:${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    virtual-host: /pinit
+    connection-timeout: 5000
+  data:
+    redis:
+      host: ${REDIS_HOST}      # Redis 서버 주소
+      port: ${REDIS_PORT}           # Redis 포트
+      password: ${REDIS_PASSWORD}
+      database: 0          # 기본 DB index
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+  application:
+    name: pinit-auth
+
+
+
+path:
+  key:
+    jwt:
+      public: /etc/keys/jwt-public-key.pem
+      private: /etc/keys/jwt-private-key.pem
