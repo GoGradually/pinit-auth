@@ -23,6 +23,8 @@ spec:
       labels:
         app: pinit-auth
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull-secret
       terminationGracePeriodSeconds: 30
       volumes:
         - name: keys

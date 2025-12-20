@@ -1,0 +1,8 @@
+**
+
+!Dockerfile
+!k8s/**
+
+!build/
+!build/libs/
+!build/libs/*.jar
