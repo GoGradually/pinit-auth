@@ -36,3 +36,11 @@ spring:
           min-idle: 0
   application:
     name: pinit-auth
+
+
+
+path:
+  key:
+    jwt:
+      public: /etc/keys/jwt-public-key.pem
+      private: /etc/keys/jwt-private-key.pem
