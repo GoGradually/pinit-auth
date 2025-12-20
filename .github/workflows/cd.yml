@@ -1,4 +1,4 @@
-name: pinit-auth CI/CD
+name: pinit-auth CD
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-test-push-deploy:
-    runs-on: [ arc-runner-set ] # ARC 러너 라벨에 맞게 조정
+    runs-on: [ arc-runner-set ]
 
     env:
       IMAGE_REPO: ghcr.io/pinit-scheduler/pinit-auth/app
@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21" # 사용 버전에 맞게 조정
+          java-version: "21"
           cache: gradle
 
       - name: Build & Test
@@ -55,7 +55,7 @@ jobs:
       - name: Install kubectl (if needed)
         uses: azure/setup-kubectl@v4
         with:
-          version: v1.33.6 # 클러스터 버전에 맞게 조정
+          version: v1.33.6
 
       - name: Create kubeconfig from in-cluster ServiceAccount
         shell: bash
@@ -89,7 +89,6 @@ jobs:
       - name: Deploy (apply manifest with GITHUB_SHA substitution)
         shell: bash
         run: |
-          # envsubst가 없으면 설치 필요(러너 이미지에 포함시키는 방식을 권장)
           command -v envsubst >/dev/null 2>&1 || (echo "envsubst not found" && exit 1)
 
           export GITHUB_SHA="${{ github.sha }}"
