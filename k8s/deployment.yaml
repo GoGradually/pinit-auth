@@ -30,11 +30,15 @@ spec:
         - name: keys
           secret:
             secretName: pinit-keys
-            defaultMode: 0400
+            defaultMode: 0444
       containers:
         - name: app
           image: ghcr.io/pinit-scheduler/pinit-auth/app:${GITHUB_SHA} # ${{ github.sha }} 환경변수로 주입 필요
           imagePullPolicy: IfNotPresent
+
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
 
           volumeMounts:
             - mountPath: /etc/keys
