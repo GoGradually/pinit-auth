@@ -86,7 +86,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(@org.springframework.beans.factory.annotation.Value("${app.frontend-base-url}") String frontendBaseUrl) {
+    public CorsConfigurationSource corsConfigurationSource(@Value("${app.frontend-base-url}") String frontendBaseUrl) {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(frontendBaseUrl));
         configuration.setAllowedMethods(List.of(
