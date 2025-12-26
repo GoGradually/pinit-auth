@@ -104,10 +104,8 @@ public class MemberController {
 
         String newAccessToken = jwtTokenProvider.createAccessToken(memberId, Collections.emptyList());
 
-        String newRefreshToken = jwtTokenProvider.createRefreshToken(memberId);
 
         return ResponseEntity.ok()
-                .header(HttpHeaders.SET_COOKIE, tokenCookieFactory.refreshTokenCookie(newRefreshToken).toString())
                 .body(new LoginResponse(newAccessToken));
     }
 
