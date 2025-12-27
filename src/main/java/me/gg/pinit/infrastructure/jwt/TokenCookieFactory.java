@@ -17,7 +17,17 @@ public class TokenCookieFactory {
     }
 
     public ResponseCookie refreshTokenCookie(String refreshToken) {
-        ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from("refresh_token", refreshToken)
+        return refreshTokenCookieBuilder(refreshToken).build();
+    }
+
+    public ResponseCookie deleteRefreshTokenCookie() {
+        return refreshTokenCookieBuilder("")
+                .maxAge(0)
+                .build();
+    }
+
+    private ResponseCookie.ResponseCookieBuilder refreshTokenCookieBuilder(String value) {
+        ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from("refresh_token", value)
                 .httpOnly(true)
                 .path("/")
                 .secure(cookieProperties.isSecure());
@@ -29,6 +39,6 @@ public class TokenCookieFactory {
             builder.sameSite(cookieProperties.getSameSite());
         }
 
-        return builder.build();
+        return builder;
     }
 }
