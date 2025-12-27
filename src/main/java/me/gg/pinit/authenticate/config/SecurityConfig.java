@@ -50,6 +50,8 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 );
 
+        http.logout(AbstractHttpConfigurer::disable);
+
         http.addFilterBefore(
                 jwtAuthenticationFilter(authenticationManager),
                 UsernamePasswordAuthenticationFilter.class
