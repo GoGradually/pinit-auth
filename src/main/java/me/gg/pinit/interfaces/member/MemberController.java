@@ -17,6 +17,7 @@ import me.gg.pinit.interfaces.member.dto.LoginRequest;
 import me.gg.pinit.interfaces.member.dto.LoginResponse;
 import me.gg.pinit.interfaces.member.dto.SignupRequest;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -107,6 +108,21 @@ public class MemberController {
 
         return ResponseEntity.ok()
                 .body(new LoginResponse(newAccessToken));
+    }
+
+    @PostMapping("/logout")
+    @Operation(
+            summary = "로그아웃",
+            description = "refresh_token 쿠키를 만료시켜 로그아웃 처리합니다."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "로그아웃 성공")
+    })
+    public ResponseEntity<Void> logout() {
+        ResponseCookie expiredCookie = tokenCookieFactory.deleteRefreshTokenCookie();
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, expiredCookie.toString())
+                .build();
     }
 
     @GetMapping("/me")
