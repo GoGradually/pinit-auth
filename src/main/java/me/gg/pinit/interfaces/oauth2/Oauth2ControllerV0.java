@@ -22,30 +22,27 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Collections;
 
-@Deprecated
 @Slf4j
 @RestController
+@RequestMapping("/v0")
 @Tag(name = "소셜 로그인", description = "외부 OAuth2 공급자(네이버) 로그인 흐름")
-public class Oauth2Controller {
+public class Oauth2ControllerV0 {
     private final JwtTokenProvider jwtTokenProvider;
     private final Oauth2Service oauth2Service;
     private final Oauth2ProviderMapper oauth2ProviderMapper;
     private final TokenCookieFactory tokenCookieFactory;
     private final String oauthCallbackBaseUrl;
 
-    public Oauth2Controller(JwtTokenProvider jwtTokenProvider,
-                            Oauth2Service oauth2Service,
-                            Oauth2ProviderMapper oauth2ProviderMapper,
-                            TokenCookieFactory tokenCookieFactory,
-                            @Value("${app.frontend-base-url}") String oauthCallbackBaseUrl) {
+    public Oauth2ControllerV0(JwtTokenProvider jwtTokenProvider,
+                              Oauth2Service oauth2Service,
+                              Oauth2ProviderMapper oauth2ProviderMapper,
+                              TokenCookieFactory tokenCookieFactory,
+                              @Value("${app.frontend-base-url}") String oauthCallbackBaseUrl) {
         this.jwtTokenProvider = jwtTokenProvider;
         this.oauth2Service = oauth2Service;
         this.oauth2ProviderMapper = oauth2ProviderMapper;

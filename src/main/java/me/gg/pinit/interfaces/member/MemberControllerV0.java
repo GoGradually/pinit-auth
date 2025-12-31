@@ -19,23 +19,20 @@ import me.gg.pinit.interfaces.member.dto.SignupRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-@Deprecated
 @RestController
+@RequestMapping("/v0")
 @Tag(name = "회원/인증", description = "아이디/비밀번호 로그인 및 토큰 관리")
-public class MemberController {
+public class MemberControllerV0 {
     private final MemberService memberService;
     private final JwtTokenProvider jwtTokenProvider;
     private final TokenCookieFactory tokenCookieFactory;
 
-    public MemberController(MemberService memberService, JwtTokenProvider jwtTokenProvider, TokenCookieFactory tokenCookieFactory) {
+    public MemberControllerV0(MemberService memberService, JwtTokenProvider jwtTokenProvider, TokenCookieFactory tokenCookieFactory) {
         this.memberService = memberService;
         this.jwtTokenProvider = jwtTokenProvider;
         this.tokenCookieFactory = tokenCookieFactory;
